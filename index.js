@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const server = require('http').createServer(express);
 const io = require('socket.io').listen(server);
-const port = process.env.SERVER_CHAT_APP_API_PORT || 80;
+const port = process.env.SERVER_CHAT_APP_API_PORT || 8080;
 
 io.on('connection', function (socket) {
     console.log('a user connected');
