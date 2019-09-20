@@ -26,9 +26,9 @@ io.on('connection', (socket) => {
   console.log('Client connected');
   socket.on("chat message", msg => {
     console.log(msg);
-    bot.onText(/\/url/,function(msg,match){
+    bot.onText(/\/url/,function(_msg,match){
         chatId = msg.chat.id;
-        io.emit("chat message", msg);
+        io.emit("chat message", _msg.text);
     })
     io.emit("chat message", msg);
     bot.sendMessage(chatId,msg);
