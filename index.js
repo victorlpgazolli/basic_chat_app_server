@@ -15,7 +15,10 @@ bot.onText(/eae/,function(msg,match){
 	chatId = msg.chat.id;
   bot.sendMessage(chatId,'Diz ae');
 })
-
+bot.onText(/\/url/,function(msg,match){
+    chatId = msg.chat.id;
+    io.emit("chat message", msg);
+})
 const server = express()
   .use((req, res) => res.sendFile(INDEX) )
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
